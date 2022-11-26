@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	<ItemGroup Label="TypeOModules">
+		<Reference Include="TypeOCore" HintPath="C:\Users\simon\AppData\Local/TypeO/ModulesCache/TypeOCore/0.1.0/TypeOCore.dll"/>
+	</ItemGroup>
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(OS)' == 'Windows_NT'">
+		<Exec Command="cmd /c &amp;quot;$(ProjectDir)../typer/typer.py dependency -p $(ProjectDir)../&amp;quot;"/>
+	</Target>
+</Project>
